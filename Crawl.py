@@ -26,7 +26,7 @@ def magnet_to_torrent(magnet_uri, dst):
 
     torrent_info = handle.get_torrent_info()
     torrent_file = libtorrent.create_torrent(torrent_info)
-    torrent_path = os.path.join(dst, torrent_info.name() + ".torrent")
+    torrent_path = os.path.join(dst, ''.join(e for e in torrent_info.name() if e.isalnum() or e in "[] ") + ".torrent")
     with open(torrent_path, "wb") as f:
         f.write(libtorrent.bencode(torrent_file.generate()))
     print("\nTorrent saved to %s" % torrent_path)
