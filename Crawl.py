@@ -20,6 +20,9 @@ def magnet_to_torrent(magnet_uri, dst):
     while not handle.has_metadata():
         info = handle.status()
         temp = time.time()
+        
+        # You can adjust the time program waits to get a torrent file, just change 60 to amount of seconds of your choice.
+        # You might also want to remove the peer condition below, to speed things up.
         if temp - counter >= 60 and info.num_peers == 0:
             print("\nCouldn't download torrent from link '" + magnet_uri + "' after " + str(int(temp - counter)) + " seconds.")
             return
