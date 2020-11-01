@@ -30,6 +30,7 @@ def magnet_to_torrent(magnet_uri, dst):
     with open(torrent_path, "wb") as f:
         f.write(libtorrent.bencode(torrent_file.generate()))
     print("\nTorrent saved to %s" % torrent_path)
+    return
 
 
 class Crawler(Maga):
