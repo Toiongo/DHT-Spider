@@ -38,7 +38,7 @@ def main():
             return
 
         async def handle_get_peers(self, infohash, addr):
-	    # You might just want to return on this function to save time from potentially dead links
+            # You might just want to return on this function to save time from potentially dead links
             await self.magnet_to_torrent('magnet:?xt=urn:btih:' + infohash.rstrip(), "./torrents/")
 
         async def handle_announce_peer(self, infohash, addr, peer_addr):
@@ -50,6 +50,6 @@ def main():
     except KeyboardInterrupt as e:
         crawler.stop()
         sys.exit()
-    
+
 if __name__ == "__main__":
-	main()
+    main()
