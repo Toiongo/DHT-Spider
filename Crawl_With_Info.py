@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 def main():
     class Crawler(Maga):
-	async def magnet_to_torrent(magnet_uri, dst):
+	async def magnet_to_torrent(self, magnet_uri, dst):
 	    params = libtorrent.parse_magnet_uri(magnet_uri)
 
 	    session = libtorrent.session({'dht_announce_interval': 3})
