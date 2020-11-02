@@ -41,7 +41,7 @@ def main():
 	    torrent_path = os.path.join(dst, ''.join(e for e in torrent_info.name() if e.isalnum() or e in "[] ") + ".torrent")
 	    with open(torrent_path, "wb") as f:
 		f.write(libtorrent.bencode(torrent_file.generate()))
-	    print("Torrent saved to %s \n" % torrent_path)
+	    print("\nTorrent saved to %s \n" % torrent_path)
 	    return
 
         async def handle_get_peers(self, infohash, addr):
