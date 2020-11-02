@@ -45,10 +45,10 @@ def main():
 	    return
 
         async def handle_get_peers(self, infohash, addr):
-            await magnet_to_torrent('magnet:?xt=urn:btih:' + infohash.rstrip(), "./torrents/")
+            await self.magnet_to_torrent('magnet:?xt=urn:btih:' + infohash.rstrip(), "./torrents/")
 
         async def handle_announce_peer(self, infohash, addr, peer_addr):
-            await magnet_to_torrent('magnet:?xt=urn:btih:' + infohash.rstrip(), "./torrents/")
+            await self.magnet_to_torrent('magnet:?xt=urn:btih:' + infohash.rstrip(), "./torrents/")
 
     try:
         crawler = Crawler()
