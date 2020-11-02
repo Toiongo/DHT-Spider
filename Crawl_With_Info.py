@@ -33,7 +33,7 @@ def main():
 		# (You might also want to modify the print msg above that says |60 seconds)
 		# And you might also want to remove the peer condition below, to speed things up.
 		if temp - counter >= 60 and info.num_peers == 0:
-			print("Couldn't find peers for '" + magnet_uri + "' after " + str(int(temp - counter)) + " seconds.\n")
+			print("\nCouldn't find peers for '" + magnet_uri + "' after " + str(int(temp - counter)) + " seconds.\n")
 			return
 
 	    torrent_info = handle.get_torrent_info()
