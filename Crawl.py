@@ -26,7 +26,7 @@ def main():
                 # You can adjust the time program waits to get a torrent file, just change 60 to amount of seconds of your choice.
                 # You might also want to remove the peer condition below, to speed things up.
                 if temp - counter >= 60 and info.num_peers == 0:
-                    print("\nCouldn't download torrent from link '" + magnet_uri + "' after " + str(int(temp - counter)) + " seconds.")
+                    print("Couldn't download torrent from link '" + magnet_uri + "' after " + str(int(temp - counter)) + " seconds.\n")
                     return
 
             torrent_info = handle.get_torrent_info()
@@ -34,7 +34,7 @@ def main():
             torrent_path = os.path.join(dst, ''.join(e for e in torrent_info.name() if e.isalnum() or e in "[] ") + ".torrent")
             with open(torrent_path, "wb") as f:
                 f.write(libtorrent.bencode(torrent_file.generate()))
-            print("\nTorrent saved to %s" % torrent_path)
+            print("Torrent saved to %s \n" % torrent_path)
             return
 
         async def handle_get_peers(self, infohash, addr):
