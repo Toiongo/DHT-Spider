@@ -39,10 +39,9 @@ def main():
 	    torrent_info = handle.get_torrent_info()
 	    torrent_file = libtorrent.create_torrent(torrent_info)
 	    torrent_path = os.path.join(dst, ''.join(e for e in torrent_info.name() if e.isalnum() or e in "[] ") + ".torrent")
-	    torrent_path = str(torrent_path).encode('utf-8').decode()
 	    with open(torrent_path, "wb") as f:
 		f.write(libtorrent.bencode(torrent_file.generate()))
-	    print("\nTorrent saved to %s \n" % torrent_path)
+	    print("\nTorrent saved to %s \n" % str(torrent_path).encode('utf-8').decode())
 	    return
 
         async def handle_get_peers(self, infohash, addr):
